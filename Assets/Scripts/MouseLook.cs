@@ -24,5 +24,6 @@ public class MouseLook : MonoBehaviour {
 
         transform.localRotation = Quaternion.Slerp(transform.rotation, 
             Quaternion.Euler(_xRotation, _yRotation, 0f), 0.5f);
+        _playerBody.Rotate(Vector3.up * _mouseMovement.x);
     }
 }
