@@ -171,6 +171,12 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
+
+				if (!SoundEffectsManager.Instance.IsPlaying("Footsteps")) {
+					SoundEffectsManager.Instance.Play("Footsteps");
+                }
+			} else {
+				SoundEffectsManager.Instance.Pause("Footsteps");
 			}
 
 			// move the player
@@ -195,6 +201,10 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+					if (!SoundEffectsManager.Instance.IsPlaying("Jump")) {
+						SoundEffectsManager.Instance.Play("Jump");
+					}
 				}
 
 				// jump timeout
